@@ -2,8 +2,8 @@
 export POSTGRESQL_MAX_CONNECTIONS=${POSTGRESQL_MAX_CONNECTIONS:-100}
 export POSTGRESQL_SHARED_BUFFERS=${POSTGRESQL_SHARED_BUFFERS:-32MB}
 
-export POSTGRESQL_RECOVERY_FILE=$HOME/openshift-custom-recovery.conf
-export POSTGRESQL_CONFIG_FILE=$HOME/openshift-custom-postgresql.conf
+export POSTGRESQL_RECOVERY_FILE=$HOME/deploydock-custom-recovery.conf
+export POSTGRESQL_CONFIG_FILE=$HOME/deploydock-custom-postgresql.conf
 
 psql_identifier_regex='^[a-zA-Z_][a-zA-Z0-9_]*$'
 psql_password_regex='^[a-zA-Z0-9_~!@#$%^&*()-=<>,.?;:|]+$'
@@ -85,7 +85,7 @@ function initialize_database() {
   # PostgreSQL configuration.
   cat >> "$PGDATA/postgresql.conf" <<EOF
 
-# Custom OpenShift configuration:
+# Custom DeployDock configuration:
 include '${POSTGRESQL_CONFIG_FILE}'
 EOF
 
@@ -95,7 +95,7 @@ EOF
   cat >> "$PGDATA/pg_hba.conf" <<EOF
 
 #
-# Custom OpenShift configuration starting at this point.
+# Custom DeployDock configuration starting at this point.
 #
 
 # Allow connections from all hosts.

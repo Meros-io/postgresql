@@ -167,7 +167,7 @@
             "containers": [
               {
                 "name": "postgresql-master",
-                "image": "openshift/postgresql-92-centos7",
+                "image": "deploydock/postgresql-92-centos7",
                 "args": [
                   "postgres-master"
                 ],
@@ -249,7 +249,7 @@
             "containers": [
               {
                 "name": "postgresql-slave",
-                "image": "openshift/postgresql-92-centos7",
+                "image": "deploydock/postgresql-92-centos7",
                 "args": [
                   "postgres-slave"
                 ],

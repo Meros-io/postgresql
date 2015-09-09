@@ -1,7 +1,7 @@
-PostgreSQL for OpenShift - Docker images
+PostgreSQL for DeployDock - Docker images
 ========================================
 
-This repository contains Dockerfiles for PostgreSQL images for OpenShift.
+This repository contains Dockerfiles for PostgreSQL images for DeployDock.
 Users can choose between RHEL and CentOS based images.
 
 
@@ -27,7 +27,7 @@ Choose either the CentOS7 or RHEL7 based image:
     subscribed RHEL machine.
 
     ```
-    $ git clone https://github.com/openshift/postgresql.git
+    $ git clone https://github.com/Meros-io/postgresql.git
     $ cd postgresql
     $ make build TARGET=rhel7 VERSION=9.2
     ```
@@ -37,13 +37,13 @@ Choose either the CentOS7 or RHEL7 based image:
     This image is available on DockerHub. To download it run:
 
     ```
-    $ docker pull openshift/postgresql-92-centos7
+    $ docker pull deploydock/postgresql-92-centos7
     ```
 
     To build a PostgreSQL image from scratch run:
 
     ```
-    $ git clone https://github.com/openshift/postgresql.git
+    $ git clone https://github.com/Meros-io/postgresql.git
     $ cd postgresql
     $ make build VERSION=9.2
     ```
@@ -86,12 +86,12 @@ matches the user UID or name which is running inside the container.**
 Usage
 ----------------------
 
-For this, we will assume that you are using the `openshift/postgresql-92-centos7` image.
+For this, we will assume that you are using the `deploydock/postgresql-92-centos7` image.
 If you want to set only the mandatory environment variables and not store the database
 in a host directory, execute the following command:
 
 ```
-$ docker run -d --name postgresql_database -e POSTGRESQL_USER=user -e POSTGRESQL_PASSWORD=pass -e POSTGRESQL_DATABASE=db -p 5432:5432 openshift/postgresql-92-centos7
+$ docker run -d --name postgresql_database -e POSTGRESQL_USER=user -e POSTGRESQL_PASSWORD=pass -e POSTGRESQL_DATABASE=db -p 5432:5432 deploydock/postgresql-92-centos7
 ```
 
 This will create a container named `postgresql_database` running PostgreSQL with

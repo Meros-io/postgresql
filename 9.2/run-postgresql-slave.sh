@@ -14,7 +14,7 @@ function initialize_replica() {
   envsubst < ${POSTGRESQL_RECOVERY_FILE}.template > ${POSTGRESQL_RECOVERY_FILE}
   cat >> "$PGDATA/recovery.conf" <<EOF
 
-# Custom OpenShift recovery configuration:
+# Custom DeployDock recovery configuration:
 include '${POSTGRESQL_RECOVERY_FILE}'
 EOF
 }

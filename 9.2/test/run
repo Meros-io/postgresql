@@ -9,7 +9,7 @@
 set -exo nounset
 shopt -s nullglob
 
-IMAGE_NAME=${IMAGE_NAME-openshift/postgresql-92-centos7-candidate}
+IMAGE_NAME=${IMAGE_NAME-deploydock/postgresql-92-centos7-candidate}
 CIDFILE_DIR=$(mktemp --suffix=postgresql_test_cidfiles -d)
 
 function cleanup() {
@@ -156,7 +156,7 @@ function test_config_option() {
   local setting=$1 ; shift
   local value=$1 ; shift
 
-  docker exec $(get_cid ${name}) grep -q "${setting} = ${value}" /var/lib/pgsql/openshift-custom-postgresql.conf
+  docker exec $(get_cid ${name}) grep -q "${setting} = ${value}" /var/lib/pgsql/deploydock-custom-postgresql.conf
 }
 
 function run_configuration_tests() {
